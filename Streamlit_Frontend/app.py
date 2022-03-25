@@ -10,9 +10,9 @@ import requests
 def predict_weather(location,begintime,endtime):
 
     data ={
-    "location": location,
-    "begintime": begintime,
-    "endtime": endtime
+    "LOCATION": location,
+    "BEGIN TIME": begintime,
+    "END TIME": endtime
     }
     response = requests.post('http://127.0.0.1:8000/predict',json=data)
     return response
@@ -20,16 +20,16 @@ def predict_weather(location,begintime,endtime):
 
 
 def main():
-    st.title("STORM PREDICTION")
+    st.title("STORM PREDICTION FOR FARMERS")
     html_temp = """
-    <div style="background-color:green;text-align:center;padding:20px">
+    <div style="background-color:green;text-align:center;padding:15px">
     <h3 style="color:white;text-align:center;">This app shows storm prediction for farmers </h3>
     </div>
     """
     st.markdown(html_temp,unsafe_allow_html=True)
-    location = st.text_input("Location","Type Here")
-    begintime = st.text_input("Begintime","Type Here")
-    endtime = st.text_input("endtime","Type Here")
+    location = st.text_input("LOCATION")
+    begintime = st.text_input("BEGIN Time")
+    endtime = st.text_input("END TIME")
     result=""
     if st.button("Predict"):
         #result=
